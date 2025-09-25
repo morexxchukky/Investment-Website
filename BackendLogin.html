@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investattic - Admin Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .login-bg {
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .login-card {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    </style>
+  </head>
+  <body class="login-bg min-h-screen flex items-center justify-center p-4">
+    <div class="login-card bg-white rounded-xl overflow-hidden w-full max-w-md">
+      <div class="p-8">
+        <div class="text-center mb-8">
+          <h1
+            class="text-3xl font-bold text-gray-800 flex items-center justify-center"
+          >
+            <i data-feather="trending-up" class="mr-2 text-blue-600"></i>
+            Investattic
+          </h1>
+          <p class="text-gray-600 mt-2">Admin Dashboard Login</p>
+        </div>
+
+        <form id="loginForm">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-medium mb-2"
+              for="email"
+              >Email</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i data-feather="mail" class="text-gray-400"></i>
+              </div>
+              <input
+                id="email"
+                type="email"
+                class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="admin@investattic.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label
+              class="block text-gray-700 text-sm font-medium mb-2"
+              for="password"
+              >Password</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i data-feather="lock" class="text-gray-400"></i>
+              </div>
+              <input
+                id="password"
+                type="password"
+                class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center">
+              <input
+                id="remember"
+                type="checkbox"
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              />
+              <label for="remember" class="ml-2 block text-sm text-gray-700"
+                >Remember me</label
+              >
+            </div>
+            <a href="#" class="text-sm text-blue-600 hover:text-blue-500"
+              >Forgot password?</a
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out flex items-center justify-center"
+          >
+            <i data-feather="log-in" class="mr-2"></i>
+            Sign In
+          </button>
+        </form>
+      </div>
+
+      <div class="bg-gray-50 px-8 py-4 border-t border-gray-200 text-center">
+        <p class="text-sm text-gray-600">
+          © 2023 Investattic. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Initialize feather icons
+      feather.replace();
+
+      // Handle form submission
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // Simple validation
+          if (email && password) {
+            // In a real app, you would send this to your backend
+            // For demo, we'll just redirect to the dashboard
+            window.location.href = "index.html";
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Please fill in all fields",
+              confirmButtonColor: "#3b82f6",
+            });
+          }
+        });
+    </script>
+  </body>
+</html>
